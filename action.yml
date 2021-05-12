@@ -1,0 +1,17 @@
+name: "CueBlox Render"
+description: "CueBlox Render"
+inputs:
+  extraArgs:
+    description: "Render Arguments"
+    required: true
+    default: ""
+  directory:
+    description: "Where is your blox.yaml?"
+    required: false
+    default: .
+runs:
+  using: "docker"
+  image: Dockerfile
+  args:
+    - ${{ inputs.directory }}
+    - ${{ inputs.extraArgs }}
