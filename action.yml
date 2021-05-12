@@ -9,9 +9,14 @@ inputs:
     description: "Where is your blox.yaml?"
     required: false
     default: .
+  target:
+    description: "File where redirected output will be sent"
+    required: false
+    default: output.txt
 runs:
   using: "docker"
   image: Dockerfile
   args:
     - ${{ inputs.directory }}
     - ${{ inputs.extraArgs }}
+    - ${{ inputs.target }}
